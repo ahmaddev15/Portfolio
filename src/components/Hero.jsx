@@ -32,6 +32,7 @@ function Hero() {
     const [roleIndex, setRoleIndex] = useState(0);
     const [text, setText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
+    const [photoActive, setPhotoActive] = useState(false);
 
     useEffect(() => {
         const currentRole = roles[roleIndex];
@@ -219,7 +220,11 @@ function Hero() {
                                 <img
                                     src="/images/profile/ahmad-profile.jpeg"
                                     alt="Muhammad Ahmad"
-                                    className="h-[500px] w-full object-cover grayscale transition-all duration-1000 ease-out group-hover:scale-105 group-hover:grayscale-0 sm:h-[600px]"
+                                    onClick={() => setPhotoActive((prev) => !prev)}
+                                    className={`h-[500px] w-full object-cover transition-all duration-1000 ease-out sm:h-[600px] ${photoActive
+                                            ? "grayscale-0 scale-105"
+                                            : "grayscale"
+                                        } md:group-hover:grayscale-0 md:group-hover:scale-105`}
                                 />
 
                                 {/* Image Gradient */}
